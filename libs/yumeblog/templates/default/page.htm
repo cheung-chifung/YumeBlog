@@ -1,0 +1,13 @@
+{% extends 'base.htm' %}
+{% load blog_tags %}{% load tagging_tags %}{% load i18n %}
+{# ----------Title----------- #}
+{% block title %}{{ page.title }}{% endblock%}
+{# ----------Content----------- #}
+{% block content %}
+<div class="post">
+<h2><a href="{% url get_page_by_slug page.slug %}">{{ page.title|escape }}</a></h2>
+<span class="date">{{ page.created|date:"j N Y" }}</span>
+<div class="entry">{{ page.content|safe }}</div>
+<div class="clearfix"></div>
+</div>
+{% endblock %}

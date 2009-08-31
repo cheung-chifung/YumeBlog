@@ -1,0 +1,62 @@
+{% extends 'base.htm' %}
+{% load blog_tags %}{% load tagging_tags %}{% load i18n %}
+{# ----------Keyword----------- #}
+{% block keywords %}{% for tag in tag_list %}{{ tag }},{% endfor %}{% endblock %}
+{# ----------Title----------- #}
+{% block title %}{{ post.title }}{% endblock%}
+{# ----------Content----------- #}
+{% block content %}
+{% tags_for_object post as tag_list %}
+{% get_comments for post as comments_list %}
+{% get_related_posts post 5 as related_posts %}
+<div class="post">
+<h2><a href="{% url get_post_by_slug post.slug %}">{{ post.title|escape }}</a></h2>
+<span class="date">{{ post.created|date:"j N Y" }}</span>
+<div class="entry">{{ post.content|safe }}</div>
+<div class="clearfix"></div>
+{% if related_posts %}
+<h3 class="related-label">{% trans 'Related entries'%}</h3>
+<ul class="related">
+	{% for rel_post in related_posts %}
+	<li><a href="{% url get_post_by_slug rel_post.slug %}">{{ rel_post.title|escape }}</a></li>
+	{% endfor %}
+</ul>
+{% endif %}
+<span class="tags">
+{% if tag_list %}
+{% trans "Tags::" %}{% for tag in tag_list %}<a href="{% url list_post_by_tag tag%}">{{ tag }}</a>{% endfor %}
+{% else %}
+{% trans "No Tag"%}
+{% endif %}
+</span>
+{% get_comments_count for post as comments_count %}
+<span class="num-of-comments"><a title="post's comments" href="{% url get_post_by_slug post.slug %}#COMMENT">{% if comments_count %}{% blocktrans count comments_count as count %}{{ count }} comment{% plural %}{{ count }} comments{% endblocktrans %}{% else %}{% trans 'no comment is a comment'%}{% endif%}</a></span>
+</div>
+<a name="COMMENT">
+<div id="comment-box">
+{% nested_comment comments_list as comment %}
+<ul>
+{% loop %}
+<li id="comment-{{ comment.pk }}" style="background-color:#1{{ depth }}1{{ depth }}1{{ depth }}">
+	<h4><a href="{{ comment.user_url }}">{{ comment.user_name }}</a>@<sup>{{ comment.created|date:"j N Y f" }}</sup></h4>
+	<img src="{% gravatar_url comment.user_email 48 'g' identicon%}" alt="{{ comment.user_name }}"/>
+	<a class="reply" onclick="show_reply({{ comment.pk }});">{% trans "Reply" %}</a>
+	<p>{{ comment.comment|linebreaksbr|escape }}</p>
+{% children %}
+</li>
+{% endloop %}
+</ul>
+{% end_nested_comment%}
+</div>
+</a>
+<form id="comment-form" action="." method="post" onsubmit="$('submit-comment').set('disabled','true').setStyle('color','#555');">
+<ul>
+<li><label for="id_user_name">{{ form.user_name.label }}</label>{{ form.user_name }}<em>{{ form.user_name.errors }}</em></li>
+<li><label for="id_user_email">{{ form.user_email.label }}</label>{{ form.user_email }}<em>{{ form.user_email.errors }}</em></li>
+<li><label for="id_user_url">{{ form.user_url.label }}</label>{{ form.user_url }}<em>{{ form.user_url.errors }}</em></li>
+<li><label for="id_comment">{{ form.comment.label }}</label>{{ form.comment }}<em>{{ form.comment.errors }}</em></li>
+<li><input type="submit" value="{% trans "Submit your comment."%}" id="submit-comment"/></li>
+<li><input type="hidden" value="" name="parent" id="id_parent"/></li>
+</ul>
+</form>
+{% endblock %}

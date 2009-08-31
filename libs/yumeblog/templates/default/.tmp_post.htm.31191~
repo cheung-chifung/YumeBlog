@@ -1,0 +1,25 @@
+{% extends 'base.htm' %}
+{% block content %}
+<div class="post">
+<h2><a href="POST">This is 测试日志</a></h2>
+<span class="date">August 18,2009</span>
+<div class="entry">今天的天气真好</div>
+<span class="num-of-comments"><a title="post's comments" href="#COMMENT">4 Comments</a></span>
+</div>
+<div id="posts">
+<div class="post">
+<h2><a href="POST">This is 测试日志</a></h2>
+<span class="date">August 18,2009</span>
+<div class="entry">今天的天气真好<br/><img src="test-img.png"/></div>
+<span class="num-of-comments"><a title="post's comments" href="#COMMENT">4 Comments</a></span>
+</div>
+<div id="posts">
+<div class="post">
+<h2><a href="POST">This is 测试日志</a></h2>
+<span class="date">August 18,2009</span>
+<div class="entry"><p>今天的天气真好</p><p>今天的天气真好<br/>小换行</p><p>今天的天气真好</p></div>
+<span class="tags">Tags:<a href="#TAG">My Tag</a><a href="#TAG">汉字</a></span>
+<span class="num-of-comments"><a title="post's comments" href="#COMMENT">4 Comments</a></span>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+from django.db import models
+from django import forms
+
+from django.conf import settings
+from django.core.urlresolvers import reverse
+
+class RichTextWidget(forms.Textarea):
+    def __init__(self, attrs=None):
+        final_attrs = {'class': 'vRichTextField'}
+        if attrs is not None:
+            final_attrs.update(attrs)
+	#self.js = (reverse('get_fckeditor_media_files',urlconf='fckeditor.urls',kwargs={'path':'fckeditor/fckeditor.js'}),\
+	#	reverse('get_fckeditor_media_files',urlconf='fckeditor.urls',kwargs={'path':'fckeditor/fckeditor_init.js'}),)
+        super(RichTextWidget, self).__init__(attrs=final_attrs)
+
+    class Media:
+	js = (reverse('get_fckeditor_media_files',urlconf='yumeblog.urls',kwargs={'path':'fckeditor/fckeditor.js'}),\
+		reverse('get_fckeditor_media_files',urlconf='fckeditor.urls',kwargs={'path':'fckeditor/fckeditor_init.js'}),)
+
+class RichTextField(models.TextField):
+    def get_internal_type(self):
+        return "TextField"
+
+    def formfield(self, **kwargs):
+        kwargs['widget'] = RichTextWidget
+        return super(RichTextField, self).formfield(**kwargs)

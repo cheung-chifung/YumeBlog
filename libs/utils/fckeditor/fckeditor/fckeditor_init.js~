@@ -1,0 +1,21 @@
+window.onload = function()
+{
+    var oFCKeditor = new FCKeditor('id_content') ; //FCKeditor's ID
+    oFCKeditor.BasePath = '/static/js/fckeditor/'; // FCKeditor's base path
+    oFCKeditor.ReplaceTextarea();
+}
+window.onload = function () {
+	var allPageTags = document.getElementsByTagName("textarea");
+	var editors = new Array();
+	for (i = 0; i < allPageTags.length; i++) {
+		if (allPageTags[i].className == "vRichTextField") {
+			var oFCKeditor = new FCKeditor(allPageTags[i].id);
+			oFCKeditor.BasePath = '/static/js/fckeditor/'; // FCKeditor's base path
+			oFCKeditor.Height = "400";
+			oFCKeditor.Width = "800"
+			oFCKeditor.ReplaceTextarea();
+			editors.push(oFCKeditor);
+		}
+	}
+};
+

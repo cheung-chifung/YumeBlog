@@ -1,0 +1,96 @@
+/*
+Copyright 2009-2010 by Hicro Kee @ http://www.hicrokee.com
+*/
+* {margin:0;padding:0;font-family:"Lucida Grande",Helvetica,Arial,sans-serif;font-size:1em;color:#ddd;}
+
+a,a:visited {color:#dd8000;text-decoration:none;}
+a:hover {color:#ddd;}
+body {background-color:#111;}
+
+@font-face {
+font-family: "ARGOS";
+src: url("/ARGOS.TTF");
+}
+
+#wrapper {margin:0 auto;width:600px;max-width:46em;}
+#header {height:8.5em;position:relative;}
+#logo {position:absolute;top:3.2em;}
+#logo h1 a {font-size:1.8em;font-family:"ARGOS","Times New Romans",serif;}
+#logo p#description {font-size:0.7em;color:#aaa;}
+#navibar {position:absolute;right:0;list-style:none;}
+#navibar li {display:block;float:left;}
+#navibar a {display:block;padding:.6em 1em;border-left:.1em dotted #442000;font-family:"ARGOS","Times New Romans",serif;font-weight:bold;color:#d44;}
+#navibar a:hover {padding:.6em 2em;color:#ddd;}
+
+.post {padding:1.8em;margin-bottom:1.3em;border:.2em solid #181818;-moz-border-radius:.6em;background-color:#252525;position:relative;}
+.post:hover {border-color:#633;}
+.post h2 a {color:#eee;font-size:1.5em;font-family:"Times New Romans",serif;text-shadow:.1em .1em #404040;}
+.post h2 a:hover {color:#dd8000;}
+.date {color:#555;font-size:.7em;position:absolute;right:2em;top:1em;}
+.entry {padding:1.8em 0;font-size:.9em;line-height:1.5em;}
+.entry p {padding:.3em 0;text-indent:2em;}
+.entry strike {color:#999;}
+.entry strike:hover {text-decoration:underline;}
+.entry blockquote {padding: 1em 3em;margin:1em; background-color:#222;}
+.entry em {color:#aa8000;}
+.entry a:hover {text-decoration:underline;}
+.post img {margin:.8em;border:.3em solid #444;-moz-border-radius:.3em;}
+.post ul {margin-left:2em;}
+.clearfix {clear:both;}
+.rest-of-entry {display:block;clear:both;height:3em;padding-left:2em;}
+.hidden {display:none;}
+
+.page-nav {clear:both;padding-bottom:.5em;}
+.page-nav a {display:block;width:40%;padding:.5em;font-size:.9em;}
+.page-nav a:hover {border:.1em dotted #444000;padding:.4em;}
+.page-next {float:right;text-align:right;}
+.page-prev {float:left;text-align:left;}
+
+.num-of-comments,.tags {position:absolute;right:2em;font-size:.7em;}
+.num-of-comments {bottom:1em;}
+.tags {bottom:2.6em;}
+.tags a {padding:0 .3em;}
+.num-of-comments a:hover {text-decoration:underline;}
+
+.message {padding:.5em 5em .6em 2em;margin-bottom:1em;border:.2em solid #181818;-moz-border-radius:.6em;background-color:#dd8000;position:relative;}
+.message:hover {border-color:#444;}
+.message span,.message span em {font-size:1.2em;font-family:"Times New Romans",serif;font-style:normal;font-weight:normal;}
+.message span {color:#222;}
+.message em {padding-right:.5em;color:#000;}
+
+.related {margin-left:4em;list-style:hiragana-iroha;font-weight:bold;}
+.related li {font-size:.8em;padding:.3em 0;}
+.related li a {color:#884000;}
+.related li a:hover {color:#dd8000;}
+.related-label {margin:1em 0 .5em .3em;color:#999;}
+
+#comment-box ul {list-style:none;}
+#comment-box h4 a {font-style:italic;font-family:"Times New Romans",serif;font-weight:normal;font-size:1.6em;}
+#comment-box h4 a:hover {color:#888;}
+#comment-box h4 {font-size:.7em;color:#777;}
+#comment-box sup {color:#888;}
+#comment-box li {padding:1em;margin:.4em 0;border:.1em solid #202020;position:relative;}
+#comment-box img {border:.2em solid #884000;position:absolute;right:1em;top:1em;}
+#comment-box p {padding:1em;font-size:.9em;min-height:1.5em;}
+#comment-box a.reply {font-size:.7em;position:absolute;right:1.2em;top:6.8em;cursor:pointer;}
+
+#comment-form {padding:1em;}
+#comment-form ul {list-style:none;font-size:.8em;}
+#comment-form label {display:block;padding:.2em 0;}
+#comment-form input,#comment-form textarea {padding:.3em;border:.1em solid #555;background-color:#333;width:20em;}
+#comment-form input:hover,#comment-form textarea:hover {border-color:#bb8000;}
+#comment-form textarea {width:35em;}
+#comment-form em {padding:.3em 0;color:#d44;font-size:1.2em}
+#submit-comment {margin-top:1em;}
+
+#info {clear:both;padding:.5em 0;border-top:.1em dotted #222;color:#aaa;line-height:150%;}
+#info h3 {margin:.5em 0;font-size:1.2em;font-family:"Times New Romans",serif;color:#dd8000;}
+#info ul {list-style:none;}
+#info li {display:inline;}
+#info a {padding:.3em .6em;font-size:.9em;color:#ddd;}
+#info a:hover {-moz-border-radius:.3em;border:.1em dotted #333;color:#dd8000;background-color:#222;}
+.description {font-size:.8em;padding-left:1em;}
+
+#footer {padding:1em 0;border-top:.1em dotted #444;font-size:.8em;color:#aaa;line-height:150%;}
+.copyright {color:#999;}
+.design {color:#777;}

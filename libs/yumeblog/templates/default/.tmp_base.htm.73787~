@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+{% load i18n %}{% load tagging_tags %}{% load blog_tags %}
+{% get_siteinfo as site %}
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="{% url get_blog_media_file "style/common.css" %}">
+<link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS Feed" href="{% url get_feed "latest" %}" />
+<title>{% block title %}FrontPage{% endblock %} || {{ site.title }} </title>
+</head>
+<body>
+<div id="wrapper">
+<div id="header">
+<div id="logo">
+	<h1><a href="{% url blog_index %}">{{ site.title }}</a></h1>
+<p id="description">There is no fate but we make.<a type="application/rss+xml" href="{% url get_feed "latest" %}" title="Entries RSS">(#)</a></p>
+</div>
+<ul id="navibar">
+{% get_menuitems as menuitems %}
+{% for menuitem in menuitems  %}
+<li><a href="{{ menuitem.url }}">{{ menuitem.title}}</a></li>
+{% endfor %}
+</ul>
+</div>
+<div id="posts">
+{# ----------MESSAGE----------- #}
+{% block message %}
+{% if msg.type_code %}
+<div class="message">
+<span>{% if msg.type_str %}<em>{{ msg.type_str }}:</em>{% endif %}{{ msg.message }}</span>
+</div>
+{% endif %}
+{% endblock %}
+{# ----------CONTENT----------- #}
+{% block content %}{% endblock %}
+<div id="info">
+{# ----------INFO----------- #}
+{% block info %}
+{# -->TAG #}
+{% tag_cloud_for_model yumeblog.Post as post_tags with steps=5 min_count=2 distribution=linear %}
+{% if post_tags %}
+<h3>{% trans "Tags::" %}</h3>
+<ul>
+{% for tag in post_tags %}
+<li><a href="{% url list_post_by_tag tag%}" style="font-size:1.{{ tag.font_size }}em;">{{ tag }}({{ tag.count }})</a></li>
+{% endfor %}
+</ul>
+{% else %}
+<h3>{% trans "No Tag" %}</h3>
+{% endif %}
+{% get_latest yumeblog.Link 20 as latest_link_list %}
+{% if latest_link_list %}
+<h3>{% trans "Links::" %}</h3>
+<ul>
+{% for link in latest_link_list %}
+<li><a href="{{ link.url }}" title="{{ link.title }}" rel="{{ link.relation }}" target="_blank">{{ link.title }}</a></li>
+{% endfor %}
+</ul>
+{% else %}
+<h3>{% trans "No Link" %}</h3>
+{% endif %}
+{% endblock %}
+</div>
+<div id="footer">
+{{ site.copyright|safe }}
+</div>
+</div>
+</body>
+</html>

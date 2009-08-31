@@ -1,0 +1,118 @@
+[
+  {
+    "model": "yumeblog.SiteInfo",
+    "pk": 1,
+    "fields": {
+      "title": "Yume Blog",
+      "subtitle": "Start your new blog",
+      "description": "Your Blog's Description",
+	  "copyright": "<p class=\"copyright\">Copyright © 2009-2010 by Hicro Kee. All Rights Reserved. </p><p class=\"design\">Designed & Created by Hicro Kee @ <a href=\"http://www.hicrokee.com\">www.hicrokee.com</a>.</p><p>Powered by <a href=\"http://www.djangoproject.com\" target=\"_blank\">Django 1.1</a> & <a href=\"http://www.gentoo.org\" target=\"_blank\">Gentoo Linux</a></p>",
+      "copyright_plain_text": "Copyright © 2009-2010 by Hicro Kee. All Rights Reserved. ",
+	  "keywords": "Yumeblog,django,python",
+	  "site": 1
+    }
+  },
+  {
+    "model": "yumeblog.Menu",
+    "pk": 1,
+    "fields": {
+      "title": "Blog",
+	  "url": "/blog/index",
+      "site": 1
+    }
+  },
+  {
+    "model": "yumeblog.Menu",
+    "pk": 2,
+    "fields": {
+      "title": "About",
+	  "url": "/blog/page/about",
+	  "site": 1
+    }
+  },
+  {
+    "model": "yumeblog.Menu",
+    "pk": 3,
+    "fields": {
+      "title": "Admin",
+	  "url": "/blog/admin",
+	  "site": 1
+    }
+  },
+  {
+    "model": "yumeblog.Link",
+    "pk": 1,
+    "fields": {
+      "title": "HicroKee.com",
+	  "url": "http://www.hicrokee.com",
+	  "relation": "help",
+	  "site": 1
+    }
+  },
+  {
+    "model": "yumeblog.Link",
+    "pk": 2,
+    "fields": {
+      "title": "Kee wiki",
+	  "url": "http://www.hicrokee.com/wiki/YumeBlog",
+	  "relation": "help",
+	  "site": 1
+    }
+  },
+  {
+    "model": "yumeblog.Post",
+    "pk": 1,
+    "fields": {
+      "title": "Try to test Yumeblog",
+	  "slug": "try-to-test-yumeblog",
+	  "content": "<img align=\"right\" width=\"246\" height=\"75\" src=\"http://www.hicrokee.com/wiki/YumeBlog?action=AttachFile&do=get&target=YumeBlogLogo.png\" />Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi massa justo, vehicula sagittis blandit consequat, faucibus ut metus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec id ipsum tortor. Proin id urna dolor, eget molestie erat. Integer et pellentesque arcu. Nunc nec orci justo. Aenean aliquet porta felis a tempus. Donec gravida erat mollis orci venenatis eget consequat tortor bibendum. Nam libero nisl, tincidunt a aliquam id, venenatis ut nulla. Quisque pharetra tellus nibh, eget commodo nunc. Pellentesque justo justo, dictum sed cursus non, hendrerit ut arcu. Morbi dignissim nisl ut mi blandit ultricies. ",
+	  "site": 1
+    }
+  },
+  {
+    "model": "yumeblog.Post",
+    "pk": 2,
+    "fields": {
+      "title": "Welcome to YumeBlog",
+	  "slug": "welcome-to-yumeblog",
+	  "content": "<p>Welcome to YumeBlog.</p><p>If you can see this entry, it means you have installed YumeBlog Successfully.</p><p>You can go to <a target=\"_blank\" href=\"http://www.hicrokee.com/wiki/YumeBlog\">Kee Wiki</a> to learn how to install &amp; configure it.</p>",
+	  "site": 1
+    }
+  },
+  {
+    "model": "yumeblog.Comment",
+    "pk": 1,
+    "fields": {
+      "user_name": "Hicro Kee",
+	  "user_email": "hicrokee@gmail.com",
+	  "user_url": "http://www.hicrokee.com",
+	  "comment": "Here is a test comment\nLorem ipsum dolor sit amet, consectetur adipiscing elit.",
+	  "post": 2,
+	  "site": 1
+    }
+  },
+  {
+    "model": "yumeblog.Comment",
+    "pk": 2,
+    "fields": {
+      "user_name": "Hicro Kee",
+	  "user_email": "hicrokee@gmail.com",
+	  "user_url": "http://www.hicrokee.com",
+	  "comment": "Here is a test nested comment",
+	  "post": 2,
+	  "parent": 1,
+	  "site": 1
+    }
+  },
+  {
+    "model": "yumeblog.Page",
+    "pk": 1,
+    "fields": {
+      "title": "About",
+	  "slug": "about",
+	  "content": "Powered by <a href=\"http://www.hicrokee.com/wiki/YumeBlog\">YumeBlog</a>",
+	  "site": [1]
+    }
+  }
+]
+

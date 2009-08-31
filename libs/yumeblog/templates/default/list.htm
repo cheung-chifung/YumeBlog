@@ -1,0 +1,62 @@
+{% extends 'base.htm' %}
+{% load blog_tags %}{% load tagging_tags %}{% load i18n %}
+{% if posts.list_by %}
+{% block keywords %}{{ posts.list_by }}{% endblock %}
+{% endif %}
+{# ----------Title----------- #}
+{% block title %}
+{% trans "Entries List" %}{% if posts.list_by %}::{{ posts.list_by }}{% endif %}
+{% endblock%}
+{# ----------Content----------- #}
+{% block message %}
+{% if posts.list_by %}
+<div class="message">
+<span>
+{% ifequal posts.list_type 'TAG' %}<em>{% trans "Tags:"%}</em>{{ posts.list_by }}{% endifequal %}
+{% ifequal posts.list_type 'SEARCH' %}<em>{% trans "Keyword:"%}</em>{{ posts.list_by }}{% endifequal %}
+</span>
+</div>
+{% endif %}
+{% endblock %}
+{% block content %}
+<div id="posts">
+{% if posts.object_list %}
+{% for post in posts.object_list %}
+	{% tags_for_object post as tag_list %}
+<div class="post">
+<h2><a href="{% url get_post_by_slug post.slug %}">{{ post.title|escape }}</a></h2>
+<span class="date">{{ post.created|date:"j N Y" }}</span>
+<div class="entry">{{ post.intro|default:post.content|safe }}</div>
+<div class="clearfix"></div>
+{% if post.intro %}
+<div class="rest-of-entry"><a href="{% url get_post_by_slug post.slug %}">{% trans "Read the rest of the entry" %}</a></div>
+{% endif %}
+<span class="tags">
+{% if tag_list %}
+{% trans "Tags::" %}{% for tag in tag_list %}<a href="{% url list_post_by_tag tag%}">{{ tag }}</a>{% endfor %}
+{% else %}
+{% trans "No Tag"%}
+{% endif %}
+</span>
+{% get_comments_count for post as comments_count %}
+<span class="num-of-comments"><a title="post's comments" href="{% url get_post_by_slug post.slug %}#COMMENT">{% if comments_count %}{% blocktrans count comments_count as count %}{{ count }} comment{% plural %}{{ count }} comments{% endblocktrans %}{% else %}{% trans 'no comment is a comment'%}{% endif%}</a></span>
+</div>
+{% endfor %}
+{% else %}
+<div class="message">
+<span>{% trans 'No matched entry.' %}</span>
+</div>
+{% endif %}
+<div class="page-nav">
+{% if posts.has_next %}
+<a class="page-prev" href="?page={{ posts.next_page_number }}">{% trans "<< Older Entries" %}</a>
+{% endif %}
+
+{% if posts.has_previous %}
+<a class="page-next" href="?page={{ posts.previous_page_number }}">{% trans "Newer Entries >>" %}</a>
+{% endif %}
+
+{% if posts.has_previous or posts.has_next %}<div class="clearfix"></div>{% endif %}
+</div>
+</div>
+{% endblock %}

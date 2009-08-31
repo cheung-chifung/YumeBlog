@@ -1,0 +1,43 @@
+from django.template import Library, Node
+from django.db.models import get_model
+from django.utils.translation import ugettext as _
+from threadedcomments.models import FreeThreadedComment
+from blog.models import Post
+     
+register = Library()
+     
+class LatestContentNode(Node):
+    def __init__(self, model, num, varname):
+        self.num, self.varname = num, varname
+        self.model = get_model(*model.split('.'))
+    
+    def render(self, context):
+        context[self.varname] = self.model.objects.all()[:self.num]
+        return ''
+ 
+def get_latest(parser, token):
+    bits = token.contents.split()
+    if len(bits) < 5:
+        raise TemplateSyntaxError, _("get_latest tag takes exactly four arguments")
+    if bits[3] != 'as':
+        raise TemplateSyntaxError, _("third argument to get_latest tag must be 'as'")
+    return LatestContentNode(bits[1], bits[2], bits[4])
+
+class LatestCommentNode(Node):
+    def __init__(self,  num, varname):
+        self.num, self.varname = num, varname
+    
+    def render(self, context):
+        context[self.varname] = FreeThreadedComment.objects.all_for_object(Post).order_by('-date_submitted')[:self.num]
+        return ''
+ 
+def get_latest_blog_comments(parser, token):
+    bits = token.contents.split()
+    if len(bits) < 4:
+        raise TemplateSyntaxError, _("get_latest tag takes exactly four arguments")
+    if bits[2] != 'as':
+        raise TemplateSyntaxError, _("third argument to get_latest tag must be 'as'")
+    return LatestCommentNode(bits[1], bits[3] )
+
+get_latest = register.tag(get_latest)
+get_latest = register.tag(get_latest_blog_comments)
