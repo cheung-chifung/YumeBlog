@@ -1,3 +1,0 @@
-{% extends '../base.htm' %}
-{{ flatpage.title }}
-{{ flatpage.content }}

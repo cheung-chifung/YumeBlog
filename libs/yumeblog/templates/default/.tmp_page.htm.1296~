@@ -1,3 +1,0 @@
-{% extends 'base.htm' %}
-{{ page.title }}
-{{ page.content }}
