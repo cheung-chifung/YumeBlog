@@ -1,0 +1,12 @@
+{% load i18n %}
+{% blocktrans with site|title as site_title and post|title as post_title and original|comment as original_comment and reply|comment as reply_comment %}
+<p></p><b>{{ site_title }}</b> inform respectfully: your comment on post <b>{{ post_title }}</b> now have new reply.</p>
+<br/>
+<p>here is your comment:</p>
+<p>{{ original_comment|linebreaksbr|escape }}</p>
+<br/>
+<p>here is new reply comment:</p>
+<p>{{ reply_comment|linebreaksbr|escape }}</p>
+
+
+{% endblocktrans %}
