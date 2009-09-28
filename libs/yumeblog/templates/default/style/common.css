@@ -7,10 +7,11 @@ a,a:visited {color:#dd8000;text-decoration:none;}
 a:hover {color:#ddd;}
 body {background-color:#111;}
 
+/*
 @font-face {
 font-family: "ARGOS";
 src: url("/ARGOS.TTF");
-}
+}*/
 
 #wrapper {margin:0 auto;width:600px;max-width:46em;}
 #header {height:8.5em;position:relative;}
@@ -22,7 +23,7 @@ src: url("/ARGOS.TTF");
 #navibar a {display:block;padding:.6em 1em;border-left:.1em dotted #442000;font-family:"ARGOS","Times New Romans",serif;font-weight:bold;color:#d44;}
 #navibar a:hover {padding:.6em 2em;color:#ddd;}
 
-.post {padding:1.8em;margin-bottom:1.3em;border:.2em solid #181818;-moz-border-radius:.6em;background-color:#252525;position:relative;}
+.post {clear:both;padding:1.8em;margin-bottom:1.3em;border:.2em solid #181818;-moz-border-radius:.6em;background-color:#252525;position:relative;}
 .post:hover {border-color:#633;}
 .post h2 a {color:#eee;font-size:1.5em;font-family:"Times New Romans",serif;text-shadow:.1em .1em #404040;}
 .post h2 a:hover {color:#dd8000;}
@@ -58,6 +59,12 @@ src: url("/ARGOS.TTF");
 .message span {color:#222;}
 .message em {padding-right:.5em;color:#000;}
 
+.latest-comments {list-style:none;text-align:center;}
+.latest-comments img {border:.3em solid #363636;-moz-border-radius:.2em;}
+.latest-comments li {display:inline;}
+.latest-comments li a {opacity:.2;}
+.latest-comments li a:hover {opacity:1;}
+
 .related {margin-left:4em;list-style:hiragana-iroha;font-weight:bold;}
 .related li {font-size:.8em;padding:.3em 0;}
 .related li a {color:#884000;}
@@ -71,13 +78,16 @@ src: url("/ARGOS.TTF");
 #comment-box sup {color:#888;}
 #comment-box li {padding:1em;margin:.4em 0;border:.1em solid #202020;position:relative;}
 #comment-box img {border:.2em solid #884000;position:absolute;right:1em;top:1em;}
-#comment-box p {padding:1em;font-size:.9em;min-height:1.5em;}
+#comment-box p {padding:1em 4em 1em 1em;font-size:.9em;min-height:1.5em;}
 #comment-box a.reply {font-size:.7em;position:absolute;right:1.2em;top:6.8em;cursor:pointer;}
 
 #comment-form {padding:1em;}
 #comment-form ul {list-style:none;font-size:.8em;}
 #comment-form label {display:block;padding:.2em 0;}
+#comment-form label.checkbox-label {display:inline;}
+#id_is_notice {margin:.3em;}
 #comment-form input,#comment-form textarea {padding:.3em;border:.1em solid #555;background-color:#333;width:20em;}
+#comment-form textarea {background:url(../images/cb_bg.png) no-repeat right bottom #333;}
 #comment-form input:hover,#comment-form textarea:hover {border-color:#bb8000;}
 #comment-form textarea {width:35em;}
 #comment-form em {padding:.3em 0;color:#d44;font-size:1.2em}

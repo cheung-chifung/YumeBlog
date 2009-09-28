@@ -1,12 +1,18 @@
-{% load i18n %}
-{% blocktrans with site|title as site_title and post|title as post_title and original|comment as original_comment and reply|comment as reply_comment %}
+{% load i18n %}{% load blog_tags %}
+{% blocktrans with site|title as site_title and post|title as post_title %}
 <p></p><b>{{ site_title }}</b> inform respectfully: your comment on post <b>{{ post_title }}</b> now have new reply.</p>
-<br/>
-<p>here is your comment:</p>
-<p>{{ original_comment|linebreaksbr|escape }}</p>
-<br/>
-<p>here is new reply comment:</p>
-<p>{{ reply_comment|linebreaksbr|escape }}</p>
-
-
 {% endblocktrans %}
+<hr/>
+<p>{% trans "here is your comment:" %}</p>
+<p>{{ original.comment|linebreaksbr|escape }}</p>
+<br/>
+<p>{% trans "here is new reply comment:" %}</p>
+<p>{{ reply.comment|linebreaksbr|escape }}</p>
+<hr/>
+<p>{% trans "You can see detail for the comment on this post here:" %}</p>
+<p><a href="http://{{ site.site.domain}}{% url get_post_by_slug post.slug %}#COMMENT-{{ reply.pk }}">http://{{ site.site.domain}}{% url get_post_by_slug post.slug %}#COMMENT-{{ reply.pk }}</a></p>
+<p>{% trans "Or check the latest posts"%}</p>
+<p><b><a href="http://{{ site.site.domain }}{% url blog_index %}">{{ site.title }}</a></b></p>
+<p>{% trans "Or subscribe the RSS here:" %}</p>
+<p><b><a href="{% if site.feed %}{{ site.feed }}{% else %}http://{{ site.site.domain }}{% url get_feed "latest" %}{% endif %}">{% if site.feed %}{{ site.feed }}{% else %}http://{{ site.site.domain }}{% url get_feed "latest" %}{% endif %}</a></b></p>
+

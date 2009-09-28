@@ -19,27 +19,34 @@
 {% endif %}
 {% endblock %}
 {% block content %}
+<span class="hidden">{% trans "Latest Comments:"%}</span>
+<ul class="latest-comments">
+	{% get_latest_comments 15 as comments_list%}
+	{% for comment in comments_list %}
+		<li><a href="{% url get_post_by_id comment.post.pk %}#COMMENT-{{ comment.pk }}" title="{{ comment.comment }}"><img src="{% gravatar_url comment.user_email 24 'g' identicon%}" alt="{{ comment.user_name}}"/></a><p class="hidden">{{ comment.comment }}</p></li>
+	{% endfor %}
+</ul>
 <div id="posts">
 {% if posts.object_list %}
 {% for post in posts.object_list %}
 	{% tags_for_object post as tag_list %}
 <div class="post">
 <h2><a href="{% url get_post_by_slug post.slug %}">{{ post.title|escape }}</a></h2>
-<span class="date">{{ post.created|date:"j N Y" }}</span>
+<p class="date">{{ post.created|date:"j N Y" }}</p>
 <div class="entry">{{ post.intro|default:post.content|safe }}</div>
 <div class="clearfix"></div>
 {% if post.intro %}
 <div class="rest-of-entry"><a href="{% url get_post_by_slug post.slug %}">{% trans "Read the rest of the entry" %}</a></div>
 {% endif %}
-<span class="tags">
+<p class="tags">
 {% if tag_list %}
 {% trans "Tags::" %}{% for tag in tag_list %}<a href="{% url list_post_by_tag tag%}">{{ tag }}</a>{% endfor %}
 {% else %}
 {% trans "No Tag"%}
 {% endif %}
-</span>
+</p>
 {% get_comments_count for post as comments_count %}
-<span class="num-of-comments"><a title="post's comments" href="{% url get_post_by_slug post.slug %}#COMMENT">{% if comments_count %}{% blocktrans count comments_count as count %}{{ count }} comment{% plural %}{{ count }} comments{% endblocktrans %}{% else %}{% trans 'no comment is a comment'%}{% endif%}</a></span>
+<p class="num-of-comments"><a title="post's comments" href="{% url get_post_by_slug post.slug %}#COMMENT">{% if comments_count %}{% blocktrans count comments_count as count %}{{ count }} comment{% plural %}{{ count }} comments{% endblocktrans %}{% else %}{% trans 'no comment is a comment'%}{% endif%}</a></p>
 </div>
 {% endfor %}
 {% else %}

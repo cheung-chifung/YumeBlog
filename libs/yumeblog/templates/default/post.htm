@@ -11,7 +11,7 @@
 {% get_related_posts post 5 as related_posts %}
 <div class="post">
 <h2><a href="{% url get_post_by_slug post.slug %}">{{ post.title|escape }}</a></h2>
-<span class="date">{{ post.created|date:"j N Y" }}</span>
+<p class="date">{{ post.created|date:"j N Y" }}</p>
 <div class="entry">{{ post.content|safe }}</div>
 <div class="clearfix"></div>
 {% if related_posts %}
@@ -22,15 +22,15 @@
 	{% endfor %}
 </ul>
 {% endif %}
-<span class="tags">
+<p class="tags">
 {% if tag_list %}
 {% trans "Tags::" %}{% for tag in tag_list %}<a href="{% url list_post_by_tag tag%}">{{ tag }}</a>{% endfor %}
 {% else %}
 {% trans "No Tag"%}
 {% endif %}
-</span>
+</p>
 {% get_comments_count for post as comments_count %}
-<span class="num-of-comments"><a title="post's comments" href="{% url get_post_by_slug post.slug %}#COMMENT">{% if comments_count %}{% blocktrans count comments_count as count %}{{ count }} comment{% plural %}{{ count }} comments{% endblocktrans %}{% else %}{% trans 'no comment is a comment'%}{% endif%}</a></span>
+<p class="num-of-comments"><a title="post's comments" href="{% url get_post_by_slug post.slug %}#COMMENT">{% if comments_count %}{% blocktrans count comments_count as count %}{{ count }} comment{% plural %}{{ count }} comments{% endblocktrans %}{% else %}{% trans 'no comment is a comment'%}{% endif%}</a></p>
 </div>
 <a name="COMMENT">
 <div id="comment-box">
@@ -38,7 +38,7 @@
 <ul>
 {% loop %}
 <li id="comment-{{ comment.pk }}" style="background-color:#1{{ depth }}1{{ depth }}1{{ depth }}">
-	<h4><a href="{{ comment.user_url }}">{{ comment.user_name }}</a>@<sup>{{ comment.created|date:"j N Y f" }}</sup></h4>
+	<h4><a href="{{ comment.user_url }}" name="COMMENT-{{ comment.pk }}">{{ comment.user_name }}</a>@<sup>{{ comment.created|date:"j N Y" }}</sup></h4>
 	<img src="{% gravatar_url comment.user_email 48 'g' identicon%}" alt="{{ comment.user_name }}"/>
 	<a class="reply" onclick="show_reply({{ comment.pk }});">{% trans "Reply" %}</a>
 	<p>{{ comment.comment|linebreaksbr|escape }}</p>
@@ -55,6 +55,7 @@
 <li><label for="id_user_email">{{ form.user_email.label }}</label>{{ form.user_email }}<em>{{ form.user_email.errors }}</em></li>
 <li><label for="id_user_url">{{ form.user_url.label }}</label>{{ form.user_url }}<em>{{ form.user_url.errors }}</em></li>
 <li><label for="id_comment">{{ form.comment.label }}</label>{{ form.comment }}<em>{{ form.comment.errors }}</em></li>
+<li><label for="id_notice" class="checkbox-label">{{ form.is_notice.label }}</label>{{ form.is_notice }}<em>{{ form.is_notice.errors }}</em></li>
 <li><input type="submit" value="{% trans "Submit your comment."%}" id="submit-comment"/></li>
 <li><input type="hidden" value="" name="parent" id="id_parent"/></li>
 </ul>

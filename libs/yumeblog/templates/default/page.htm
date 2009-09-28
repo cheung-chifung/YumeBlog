@@ -6,7 +6,7 @@
 {% block content %}
 <div class="post">
 <h2><a href="{% url get_page_by_slug page.slug %}">{{ page.title|escape }}</a></h2>
-<span class="date">{{ page.created|date:"j N Y" }}</span>
+<p class="date">{{ page.created|date:"j N Y" }}</p>
 <div class="entry">{{ page.content|safe }}</div>
 <div class="clearfix"></div>
 </div>

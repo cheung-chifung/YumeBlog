@@ -17,7 +17,7 @@
     "pk": 1,
     "fields": {
       "title": "Blog",
-	  "url": "/blog/index",
+	  "url": "/myblog/index",
       "site": 1
     }
   },
@@ -26,7 +26,7 @@
     "pk": 2,
     "fields": {
       "title": "About",
-	  "url": "/blog/page/about",
+	  "url": "/myblog/page/about",
 	  "site": 1
     }
   },
@@ -35,7 +35,7 @@
     "pk": 3,
     "fields": {
       "title": "Admin",
-	  "url": "/blog/admin",
+	  "url": "/myblog/admin",
 	  "site": 1
     }
   },
@@ -46,6 +46,7 @@
       "title": "HicroKee.com",
 	  "url": "http://www.hicrokee.com",
 	  "relation": "help",
+	  "description": "Offical blog of Yumeblog",
 	  "site": 1
     }
   },
@@ -56,6 +57,7 @@
       "title": "Kee wiki",
 	  "url": "http://www.hicrokee.com/wiki/YumeBlog",
 	  "relation": "help",
+	  "description": "Offical wiki of Yumeblog",
 	  "site": 1
     }
   },
@@ -88,6 +90,7 @@
 	  "user_url": "http://www.hicrokee.com",
 	  "comment": "Here is a test comment\nLorem ipsum dolor sit amet, consectetur adipiscing elit.",
 	  "post": 2,
+	  "is_notice": false,
 	  "site": 1
     }
   },
@@ -101,6 +104,7 @@
 	  "comment": "Here is a test nested comment",
 	  "post": 2,
 	  "parent": 1,
+	  "is_notice": false,
 	  "site": 1
     }
   },

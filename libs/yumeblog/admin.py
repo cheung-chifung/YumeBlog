@@ -32,7 +32,7 @@ class LinkAdmin(admin.ModelAdmin):
     list_display = ('title','url','relation')
     fieldsets = (
         (None, {'fields': ('title', 'url',)}),
-        (_('Meta'), {'fields': ('relation','site',)}),
+        (_('Meta'), {'fields': ('relation','site','description',)}),
     )
     search_fields = ['title','url']
     
@@ -48,7 +48,7 @@ class SiteInfoAdmin(admin.ModelAdmin):
     list_display = ('title','subtitle','description')
     fieldsets = (
         (None, {'fields': ('title', 'subtitle',)}),
-        (_("Detail"), {'fields': ('description', 'copyright','copyright_plain_text','keywords',)}),
+        (_("Detail"), {'fields': ('description', 'copyright','copyright_plain_text','keywords','feed',)}),
         (_('Meta'), {'fields': ('site',)}),
     )
     search_fields = ['title','subtitle',]

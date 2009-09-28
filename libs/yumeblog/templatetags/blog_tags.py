@@ -47,6 +47,23 @@ def get_latest(parser, token):
         raise TemplateSyntaxError, _("Invaild tag syntax excepted {% get_latest APP.MODEL NUM as VARNAME%} %}")
     return LatestContentNode(bits[1], bits[4], bits[2])
 
+class LatestCommentNode(Node):
+    def __init__(self, varname, num=0):
+        self.num, self.varname = num, varname
+    
+    def render(self, context):
+        context[self.varname] = Comment.objects.filter(is_public=True)
+        if(self.num!=0):
+            context[self.varname] = context[self.varname][:self.num]
+        return ''
+
+@register.tag
+def get_latest_comments(parser, token):
+    bits = token.contents.split()
+    if len(bits) < 4 or bits[2] != 'as':
+        raise TemplateSyntaxError, _("Invaild tag syntax excepted {% get_latest_comments NUM as VARNAME%} %}")
+    return LatestCommentNode(bits[3], bits[1])
+
 @register.tag
 def get_menuitems(parser,token):
     bits = token.contents.split()

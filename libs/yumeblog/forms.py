@@ -13,4 +13,4 @@ class CommentForm(forms.ModelForm):
     )
     class Meta:
         model = Comment
-        fields = ('user_name', 'user_email', 'user_url', 'comment', 'parent')
+        fields = ('user_name', 'user_email', 'user_url', 'comment', 'parent', 'is_notice')

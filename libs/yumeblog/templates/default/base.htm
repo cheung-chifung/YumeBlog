@@ -8,9 +8,8 @@
 <meta name="copyright" content="{{ site.copyright_plain_text|default:site.copyright }}" />
 <meta name="keywords" content="{{ site.keywords }}{% block keywords %}{{ site.title }}{% endblock %}" />
 <meta name="description" content="{{ site.description }}" />
-{# PLEASE SET YOUR FAVICON USING APACHE #}
 <link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="{% url get_blog_media_file "style/common.css" %}">
-<link rel="alternate" type="application/rss+xml" title="{% blocktrans with site|title as site_title %}{{ site_title }}'s RSS Feed{% endblocktrans %}" href="http://feed.feedsky.com/hicrokee" />
+<link rel="alternate" type="application/rss+xml" title="{% blocktrans with site|title as site_title %}{{ site_title }}'s RSS Feed{% endblocktrans %}" href="{% if site.feed %}{{ site.feed }}{% else %}{% url get_feed "latest" %}{% endif %}" />
 <script language="JavaScript" src="{% url get_blog_media_file "js/mootools-1.2.1-core.js" %}"></script>
 <script language="JavaScript" src="{% url get_blog_media_file "js/core.js" %}"></script>
 <title>{% block title %}FrontPage{% endblock %} || {{ site.title }} </title>
@@ -20,7 +19,7 @@
 <div id="header">
 <div id="logo">
 	<h1><a href="{% url blog_index %}">{{ site.title }}</a></h1>
-<p id="description">There is no fate but we make.<a type="application/rss+xml" href="{% url get_feed "latest" %}" title="Entries RSS">(#)</a></p>
+<p id="description">{{ site.subtitle }}<a type="application/rss+xml" href="{% if site.feed %}{{ site.feed }}{% else %}{% url get_feed "latest" %}{% endif %}" title="Entries RSS">(#)</a></p>
 </div>
 <ul id="navibar">
 {% get_menuitems as menuitems %}
