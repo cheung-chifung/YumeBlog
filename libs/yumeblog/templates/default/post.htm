@@ -38,7 +38,7 @@
 <ul>
 {% loop %}
 <li id="comment-{{ comment.pk }}">
-	<h4><a href="{{ comment.user_url }}" name="COMMENT-{{ comment.pk }}">{{ comment.user_name }}</a>@<sup>{{ comment.created|date:"j N Y" }} - {{ comment.useragent }}</sup></h4>
+	<h4><a href="{{ comment.user_url }}" name="COMMENT-{{ comment.pk }}">{{ comment.user_name }}</a>@<sup>{{ comment.created|date:"j N Y" }}</sup></h4>
 	<img src="{% gravatar_url comment.user_email 48 'g' identicon%}" alt="{{ comment.user_name }}"/>
 	<a class="reply" onclick="show_reply({{ comment.pk }});">{% trans "Reply" %}</a>
 	<p>{{ comment.comment|linebreaksbr|escape }}</p>

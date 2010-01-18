@@ -53,9 +53,10 @@ def show_post(request,template_name='post.htm',pk=None,slug=None):
             
             if comment.comment_check(): #Start Moderation
                 #fetch user agent string
-                uas_parser = UASparser()
-                uas_data = uas_parser.parse(request.META['HTTP_USER_AGENT'])
-                comment.useragent = "%s||%s" % ( uas_data['ua_name'], uas_data['os_name'] )
+                #uas_parser = UASparser()
+                #uas_data = uas_parser.parse(request.META['HTTP_USER_AGENT'])
+                #comment.useragent = "%s||%s" % ( uas_data['ua_name'], uas_data['os_name'] )
+                comment.useragent = request.META['HTTP_USER_AGENT']
                 
                 #save
                 comment.save()
