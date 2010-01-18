@@ -8,7 +8,7 @@
 <meta name="copyright" content="{{ site.copyright_plain_text|default:site.copyright }}" />
 <meta name="keywords" content="{{ site.keywords }}{% block keywords %}{{ site.title }}{% endblock %}" />
 <meta name="description" content="{{ site.description }}" />
-<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="{% url get_blog_media_file "style/common.css" %}">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="{% url get_blog_media_file "common.css" %}">
 <link rel="alternate" type="application/rss+xml" title="{% blocktrans with site|title as site_title %}{{ site_title }}'s RSS Feed{% endblocktrans %}" href="{% if site.feed %}{{ site.feed }}{% else %}{% url get_feed "latest" %}{% endif %}" />
 <script language="JavaScript" src="{% url get_blog_media_file "js/mootools-1.2.1-core.js" %}"></script>
 <script language="JavaScript" src="{% url get_blog_media_file "js/core.js" %}"></script>

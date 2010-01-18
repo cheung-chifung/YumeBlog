@@ -5,17 +5,17 @@ Copyright 2009-2010 by Hicro Kee @ http://www.hicrokee.com
 
 a,a:visited {color:#dd8000;text-decoration:none;}
 a:hover {color:#ddd;}
-body {background:url(../images/bg.jpg) #111;}
+body {background:url(images/bg.jpg) #111;}
 
 @font-face {
 font-family: "ARGOS";
-src: url("../images/ARGOS.TTF");
+src: url("images/ARGOS.TTF");
 }
 
 #wrapper {margin:0 auto;width:800px;}
 #header {height:5.5em;position:relative;}
 #logo {width:100%;position:absolute;top:4em;text-align:center;}
-#logo h1 a {display:block;width:500px;height:69px;margin:0 auto;background:url(../images/logo.png) no-repeat;text-indent:-10000px;overflow:hidden;}
+#logo h1 a {display:block;width:500px;height:69px;margin:0 auto;background:url(images/logo.png) no-repeat;text-indent:-10000px;overflow:hidden;}
 #logo h1 a:hover {background-position:0 -69px;}
 #logo p#description {font-size:0.7em;color:#aaa;text-shadow:.1em .1em .2em #333;}
 #navibar {position:absolute;right:6em;list-style:none;}
@@ -23,7 +23,7 @@ src: url("../images/ARGOS.TTF");
 #navibar a {display:block;padding:.6em 1em;border-left:.1em dotted #442000;font-size:.8em;font-family:"ARGOS","Times New Romans",serif;font-weight:normal;color:#d44;}
 #navibar a:hover {padding:.6em 2em;color:#ddd;text-shadow:0 0 .5em #dd8800;}
 
-#posts {min-height:40em;padding:4em 100px 0 100px;background:url(../images/main-bg.png) no-repeat;}
+#posts {min-height:40em;padding:4em 100px 0 100px;background:url(images/main-bg.png) no-repeat;}
 .post {padding:1.8em;margin-bottom:1.3em;position:relative;background:rgba(36,36,36,.8);}
 .post, .message{-moz-box-shadow:0 0 1em rgba(50,50,50,0.8);-webkit-box-shadow:0 0 1em rgba(50,50,50,0.8);box-shadow:0 0 1em rgba(50,50,50,0.8);-moz-border-radius:.6em;-webkit-border-radius:.6em;-khtml-border-radius:.6em;-opera-border-radius:.6em;border-radius:.6em;}
 .post:hover {-moz-box-shadow:0 0 1em rgba(100,70,40,0.8);-webkit-box-shadow:0 0 1em rgba(100,70,40,0.8);box-shadow:0 0 2em rgba(100,70,40,.8);}
@@ -92,7 +92,7 @@ src: url("../images/ARGOS.TTF");
 #comment-form label.checkbox-label {display:inline;}
 #id_is_notice {margin:.3em;}
 #comment-form input,#comment-form textarea {padding:.3em;border:.1em solid #555;background-color:rgba(60,60,60,.6);width:20em;text-shadow:.1em .1em .2em #000;}
-#comment-form textarea {background:url(../images/cb_bg.png) no-repeat right bottom rgba(60,60,60,.6);}
+#comment-form textarea {background:url(images/cb_bg.png) no-repeat right bottom rgba(60,60,60,.6);}
 #comment-form input:hover,#comment-form textarea:hover {border-color:#bb8000;}
 #comment-form textarea {width:35em;}
 #comment-form em {padding:.3em 0;color:#d44;font-size:1.2em}

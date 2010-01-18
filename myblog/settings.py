@@ -99,7 +99,7 @@ MEDIA_ROOT = os.path.join(INSTANCE_ROOT,'media')
 #MEDIA_URL = 'http://www.hicrokee.com/blog/static'
 
 STATIC_ROOT = os.path.join(INSTANCE_ROOT,'static') #static files folder (for Upload)
-STATIC_URL = '/'.join([INSTANCE_ROOT,'static'])      #static files
+STATIC_URL = '/'.join([INSTANCE_URL,'static'])      #static files
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.

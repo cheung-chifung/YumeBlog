@@ -5,6 +5,7 @@ from yumeblog.feeds import LatestPosts
 
 from django.contrib import admin
 admin.autodiscover()
+import os
 
 feeds = { 'latest': LatestPosts, }
 
@@ -18,7 +19,7 @@ urlpatterns = patterns('',
    (r'^admin/(.*)', admin.site.root),
    (r'^media/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.MEDIA_ROOT}),
    (r'^static/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.STATIC_ROOT}),
-   url(r'^(?P<path>(style|images|css|js)/.*)$','django.views.static.serve',{'document_root':settings.TEMPLATE_BLOG_ROOT},name='get_blog_media_file'),
+   url(r'^style/(?P<path>.*)$','django.views.static.serve',{'document_root':os.path.join(settings.TEMPLATE_BLOG_ROOT,'style')},name='get_blog_media_file'),
 
    #post list
    url(r'^tag/(?P<tag>[^/]+)/$','yumeblog.views.list_post',{'template_name':'list.htm'},name='list_post_by_tag'),
