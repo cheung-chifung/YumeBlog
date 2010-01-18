@@ -111,8 +111,6 @@ def show_post(request,template_name='post.htm',pk=None,slug=None):
     except:
         pass
     
-    print form
-    
     response = render_to_response(template_name,
                               {'post':post,
                                'form':form,
