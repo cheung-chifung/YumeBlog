@@ -52,7 +52,7 @@ class LatestCommentNode(Node):
         self.num, self.varname = num, varname
     
     def render(self, context):
-        context[self.varname] = Comment.objects.filter(is_public=True)
+        context[self.varname] = Comment.objects.filter(is_public=True).order_by('-updated')
         if(self.num!=0):
             context[self.varname] = context[self.varname][:self.num]
         return ''

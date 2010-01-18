@@ -104,7 +104,7 @@ STATIC_URL = '/'.join([INSTANCE_ROOT,'static'])      #static files
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/'.join([INSTANCE_ROOT,'media','']) #ADMIN folders
+ADMIN_MEDIA_PREFIX = '/'.join([INSTANCE_URL,'media','']) #ADMIN folders
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'l=^7@%4=(+kop)yb-6h+9g_j4abqj#r-b8vm=t#v(7e=64)^hj'
