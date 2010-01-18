@@ -18,6 +18,8 @@ from django.core.mail import EmailMessage
 from django.db.models import Q
 from hashlib import md5
 
+from useragent.uasparser import UASparser
+
 def show_post(request,template_name='post.htm',pk=None,slug=None):
     '''
     Show a single post by post's slug or primarykey
@@ -47,9 +49,17 @@ def show_post(request,template_name='post.htm',pk=None,slug=None):
             comment = form.save(commit=False)
             comment.post = post
             comment.ip_address = request.META['REMOTE_ADDR']
-            comment.user_agent = request.META['HTTP_USER_AGENT']
+            
             if comment.comment_check(): #Start Moderation
+                #fetch user agent string
+                uas_parser = UASparser()
+                uas_data = uas_parser.parse(request.META['HTTP_USER_AGENT'])
+                comment.useragent = "%s||%s" % ( uas_data['ua_name'], uas_data['os_name'] )
+                
+                #save
                 comment.save()
+
+                #send notify
                 msg['message'] = _('Your comment has submited successfully.')
                 msg['type_code'] = 'SUCCESS'
                 request.session['LASTEST_COMMENT'] = md5(comment.comment.encode('utf8')).hexdigest()

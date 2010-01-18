@@ -5,9 +5,9 @@
 {% endif %}
 {# ----------Title----------- #}
 {% block title %}
-{% trans "Entries List" %}{% if posts.list_by %}::{{ posts.list_by }}{% endif %}
+{% trans "Entries" %}{% if posts.list_by %}::{{ posts.list_by }}{% endif %}
 {% endblock%}
-{# ----------Content----------- #}
+{# ----------MESSAGE----------- #}
 {% block message %}
 {% if posts.list_by %}
 <div class="message">
@@ -18,20 +18,13 @@
 </div>
 {% endif %}
 {% endblock %}
+{# ----------Content----------- #}
 {% block content %}
-<span class="hidden">{% trans "Latest Comments:"%}</span>
-<ul class="latest-comments">
-	{% get_latest_comments 15 as comments_list%}
-	{% for comment in comments_list %}
-		<li><a href="{% url get_post_by_id comment.post.pk %}#COMMENT-{{ comment.pk }}" title="{{ comment.comment }}"><img src="{% gravatar_url comment.user_email 24 'g' identicon%}" alt="{{ comment.user_name}}"/></a><p class="hidden">{{ comment.comment }}</p></li>
-	{% endfor %}
-</ul>
-<div id="posts">
 {% if posts.object_list %}
 {% for post in posts.object_list %}
 	{% tags_for_object post as tag_list %}
 <div class="post">
-<h2><a href="{% url get_post_by_slug post.slug %}">{{ post.title|escape }}</a></h2>
+<h1><a href="{% url get_post_by_slug post.slug %}">{{ post.title|escape }}</a></h1>
 <p class="date">{{ post.created|date:"j N Y" }}</p>
 <div class="entry">{{ post.intro|default:post.content|safe }}</div>
 <div class="clearfix"></div>
@@ -65,5 +58,5 @@
 
 {% if posts.has_previous or posts.has_next %}<div class="clearfix"></div>{% endif %}
 </div>
-</div>
+
 {% endblock %}

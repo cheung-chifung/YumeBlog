@@ -61,7 +61,7 @@ class Page(models.Model):
     site = models.ManyToManyField(Site,default=[settings.SITE_ID,])
     objects = CurrentSiteManager()
     updated = models.DateTimeField(_("Modified"),auto_now=True)
-    created = models.DateTimeField(_("Created"),default=datetime.now())
+    created = models.DateTimeField(_("Created"),default=datetime.now)
 
     class Meta:
         ordering = ['-created']
@@ -88,7 +88,7 @@ class Post(models.Model):
     is_public = models.BooleanField(_('is public'), default = True)
     
     updated = models.DateTimeField(_("Modified"),auto_now=True)
-    created = models.DateTimeField(_("Created"),default=datetime.now())
+    created = models.DateTimeField(_("Created"),default=datetime.now)
 
     class Meta:
         ordering = ['-created','-id',]
@@ -109,7 +109,7 @@ class Comment(models.Model):
     comment = models.TextField(_('comment'), max_length=COMMENT_MAX_LENGTH)
     
     ip_address  = models.IPAddressField(_('ip address'), blank=True, null=True)
-    #user_agent   = models.CharField(_("user's name"), max_length=100)
+    useragent  = models.CharField(_("user agent string"), max_length=100, blank=True, null=True)
     
     post = models.ForeignKey(_('post'))
     parent = models.ForeignKey('self',related_name='children',default=None,null=True,blank=True)

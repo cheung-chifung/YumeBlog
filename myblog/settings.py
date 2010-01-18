@@ -36,13 +36,13 @@ SITE_ID = 1 #Not to modify if you just want to deploy one instance
 """
 TEMPLATE PATH
 """
-BLOG_TEMPLATE_DIR = '/LIBPATH/libs/yumeblog/templates' #Path to your folder where template located.Should be an absolute path
+BLOG_TEMPLATE_DIR = '/home/hermes/Projects/YumeBlog/libs/yumeblog/templates' #Path to your folder where template located.Should be an absolute path
 TEMPLATE_NAME = 'default' # Your template's name
 
 """
 EDITOR PATH
 """
-FCKEDITOR_MEDIA_ROOT = '/LIBPATH/libs/utils/fckeditor/fckeditor' #Set to use a fckeditor
+FCKEDITOR_MEDIA_ROOT = '/home/hermes/Projects/YumeBlog/libs/utils/fckeditor/fckeditor' #Set to use a fckeditor
 FCKEDITOR_MEDIA_URL = '/'.join([INSTANCE_URL,'fckeditor']) #No need to modify
 
 """

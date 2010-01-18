@@ -10,7 +10,7 @@
 {% get_comments for post as comments_list %}
 {% get_related_posts post 5 as related_posts %}
 <div class="post">
-<h2><a href="{% url get_post_by_slug post.slug %}">{{ post.title|escape }}</a></h2>
+<h1><a href="{% url get_post_by_slug post.slug %}">{{ post.title|escape }}</a></h1>
 <p class="date">{{ post.created|date:"j N Y" }}</p>
 <div class="entry">{{ post.content|safe }}</div>
 <div class="clearfix"></div>
@@ -37,8 +37,8 @@
 {% nested_comment comments_list as comment %}
 <ul>
 {% loop %}
-<li id="comment-{{ comment.pk }}" style="background-color:#1{{ depth }}1{{ depth }}1{{ depth }}">
-	<h4><a href="{{ comment.user_url }}" name="COMMENT-{{ comment.pk }}">{{ comment.user_name }}</a>@<sup>{{ comment.created|date:"j N Y" }}</sup></h4>
+<li id="comment-{{ comment.pk }}">
+	<h4><a href="{{ comment.user_url }}" name="COMMENT-{{ comment.pk }}">{{ comment.user_name }}</a>@<sup>{{ comment.created|date:"j N Y" }} - {{ comment.useragent }}</sup></h4>
 	<img src="{% gravatar_url comment.user_email 48 'g' identicon%}" alt="{{ comment.user_name }}"/>
 	<a class="reply" onclick="show_reply({{ comment.pk }});">{% trans "Reply" %}</a>
 	<p>{{ comment.comment|linebreaksbr|escape }}</p>
