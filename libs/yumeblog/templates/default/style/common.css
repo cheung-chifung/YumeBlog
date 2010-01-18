@@ -32,7 +32,7 @@ src: url("../images/ARGOS.TTF");
 .post h1 a:hover {color:#dd8000;}
 .date {color:#555;font-size:.7em;position:absolute;right:2em;top:1em;text-shadow:.1em .1em .2em #333;}
 .entry {padding:1.8em 0;font-size:.9em;line-height:1.5em;text-shadow:0.1em 0.1em 0.5em #000;}
-.post img {display:block;margin:.5em;-moz-box-shadow:0 0 1em rgba(20,20,20,0.8);-webkit-box-shadow:0 0 1em rgba(20,20,20,0.8);box-shadow:0 0 2em rgba(20,20,20,.8);-moz-border-radius:.3em;-webkit-border-radius:.3em;-khtml-border-radius:.3em;-opera-border-radius:.3em;border-radius:.3em;}
+.post img {margin:.5em;-moz-box-shadow:0 0 1em rgba(20,20,20,0.8);-webkit-box-shadow:0 0 1em rgba(20,20,20,0.8);box-shadow:0 0 2em rgba(20,20,20,.8);-moz-border-radius:.3em;-webkit-border-radius:.3em;-khtml-border-radius:.3em;-opera-border-radius:.3em;border-radius:.3em;}
 .entry p {padding:.3em 0;text-indent:2em;}
 .entry strike {color:#999;}
 .entry strike:hover {text-decoration:underline;}
@@ -88,7 +88,7 @@ src: url("../images/ARGOS.TTF");
 
 #comment-form {padding:1em;}
 #comment-form ul {list-style:none;font-size:.8em;}
-#comment-form label {display:block;padding:.2em 0;text-shadow:.1em .1em .2em #000}
+#comment-form label {display:block;padding:.4em 0;text-shadow:.1em .1em .2em #000}
 #comment-form label.checkbox-label {display:inline;}
 #id_is_notice {margin:.3em;}
 #comment-form input,#comment-form textarea {padding:.3em;border:.1em solid #555;background-color:rgba(60,60,60,.6);width:20em;text-shadow:.1em .1em .2em #000;}

@@ -40,6 +40,7 @@ def show_post(request,template_name='post.htm',pk=None,slug=None):
     if request.method == 'POST':
         form = CommentForm(request.POST)
         lastest_comment = md5(request.POST['comment'].encode('utf-8')).hexdigest()
+
         if request.session.get('LASTEST_COMMENT','') == lastest_comment :
             msg['message'] = _('You\'ve already commented.')
             msg['type_str'] = _('Alert')
@@ -88,7 +89,6 @@ def show_post(request,template_name='post.htm',pk=None,slug=None):
             form = CommentForm()
                 
         else:
-            print form
             msg['message'] = _('Please check the form and try again.')
             msg['type_str'] = _('Submit failed')
             msg['type_code'] = 'ERROR'
@@ -100,7 +100,8 @@ def show_post(request,template_name='post.htm',pk=None,slug=None):
         if ( request.COOKIES.has_key('BLOG_USERNAME') and 
              request.COOKIES.has_key('BLOG_USEREMAIL') and 
              request.COOKIES.has_key('BLOG_USERURL') and
-            request.COOKIES.has_key('IS_NOTICE') ):
+            request.COOKIES.has_key('IS_NOTICE') and
+            not form.errors ):
             form = CommentForm(initial={
                             'user_name':request.COOKIES['BLOG_USERNAME'],
                             'user_email':request.COOKIES['BLOG_USEREMAIL'],
@@ -109,6 +110,8 @@ def show_post(request,template_name='post.htm',pk=None,slug=None):
                             })
     except:
         pass
+    
+    print form
     
     response = render_to_response(template_name,
                               {'post':post,

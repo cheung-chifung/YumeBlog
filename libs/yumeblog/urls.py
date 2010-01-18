@@ -39,3 +39,6 @@ urlpatterns = patterns('',
    
 )
 
+handler404 = 'yumeblog.views.handler404'
+handler500 = 'yumeblog.views.handler500'
+
