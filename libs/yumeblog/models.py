@@ -153,7 +153,7 @@ class Comment(models.Model):
             return False
 
     class Meta:
-        ordering = ['-created']
+        ordering = ['-updated']
         
     def __unicode__(self):
         return self.comment
