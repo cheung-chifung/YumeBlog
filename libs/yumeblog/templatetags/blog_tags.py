@@ -29,7 +29,7 @@ class RelatedPostNode(Node):
         
     def render(self, context):
         context[self.varname] = TaggedItem.objects.get_related(self.instance.resolve(context),Post)
-        print context[self.varname]
+
         return ''
     
 @register.tag
