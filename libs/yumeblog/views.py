@@ -65,8 +65,7 @@ def show_post(request,template_name='post.htm',pk=None,slug=None):
                 msg['message'] = _('Your comment has submited successfully.')
                 msg['type_code'] = 'SUCCESS'
                 request.session['LASTEST_COMMENT'] = md5(comment.comment.encode('utf8')).hexdigest()
-                if comment.parent and comment.parent.is_notice: #Send mail
-                    from settings import EMAIL_HOST_USER
+                if comment.parent and comment.parent.is_notice and hasattr(settings,'EMAIL_HOST_USER'): #Send mail
                     site = SiteInfo.objects.get_current()
                     subject = _("Your comment over at %s now have new reply" % site.title)
                     html_content = loader.render_to_string("email-notify.htm",{
@@ -76,7 +75,7 @@ def show_post(request,template_name='post.htm',pk=None,slug=None):
                                                                 'reply':comment,
                                                                                })
                     recipient_list = [comment.parent.user_email,]
-                    mail = EmailMessage(subject, html_content, EMAIL_HOST_USER, recipient_list)
+                    mail = EmailMessage(subject, html_content, settings.EMAIL_HOST_USER, recipient_list)
                     mail.content_subtype = "html"
                     mail.send()
             else:
