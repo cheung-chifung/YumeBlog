@@ -38,6 +38,12 @@ src: url("images/ARGOS.TTF");
 .entry strike:hover {text-decoration:none;}
 .entry blockquote {padding: 1em 3em;margin:1em;background-color:rgba(20, 20, 20, 0.3);text-shadow:0.1em 0.1em 0.5em rgba(40, 40, 40, 0.898);color:#FFF;}
 .entry em {color:#AA4000;}
+.entry h3 {margin:.6em 0;font-size:1.1em;}
+.entry h5 {margin:.7em 0;font-size:1.2em;}
+.entry h4 {margin:.8em 0;font-size:1.3em;text-align:center;}
+.entry h3 {margin:.9em 0;font-size:1.4em;text-align:center;}
+.entry h3 {margin:1em 0;font-size:1.5em;text-align:center;}
+.entry h2 {margin:1.2em 0;font-size:1.6em;text-align:center;}
 .entry a{color:#FF8000;text-decoration:underline;}
 .entry a:hover {color:#DDD;text-decoration:none;}
 .post ul {margin-left:2em;}
