@@ -10,6 +10,7 @@
 <meta name="description" content="{{ site.description }}" />
 <link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="{% url get_blog_media_file "common.css" %}">
 <link rel="alternate" type="application/rss+xml" title="{% blocktrans with site|title as site_title %}{{ site_title }}'s RSS Feed{% endblocktrans %}" href="{% if site.feed %}{{ site.feed }}{% else %}{% url get_feed "latest" %}{% endif %}" />
+<link rel="SHORTCUT ICON" href="{% url get_blog_media_file "favicon.ico" %}"/>
 <script language="JavaScript" src="{% url get_blog_media_file "js/mootools-1.2.1-core.js" %}"></script>
 <script language="JavaScript" src="{% url get_blog_media_file "js/core.js" %}"></script>
 <title>{% block title %}FrontPage{% endblock %} || {{ site.title }} </title>
@@ -32,9 +33,7 @@
 <span class="hidden">{% trans "Latest Comments:"%}</span>
 <ul class="latest-comments">
 	{% get_latest_comments 15 as comments_list%}
-	{% for comment in comments_list %}
-		<li><a href="{% url get_post_by_id comment.post.pk %}#COMMENT-{{ comment.pk }}" title="{{ comment.comment }}"><img src="{% gravatar_url comment.user_email 24 'g' identicon%}" alt="{{ comment.user_name}}"/></a><p class="hidden">{{ comment.comment }}</p></li>
-	{% endfor %}
+{% for comment in comments_list %}<li><a href="{% url get_post_by_id comment.post.pk %}#COMMENT-{{ comment.pk }}" title="{{ comment.comment }}"><img src="{% gravatar_url comment.user_email 24 'g' identicon%}" alt="{{ comment.user_name}}"/></a><p class="hidden">{{ comment.comment }}</p></li>{% endfor %}
 </ul>
 {# ----------MESSAGE----------- #}
 {% block message %}

@@ -5,7 +5,7 @@ Copyright 2009-2010 by Hicro Kee @ http://www.hicrokee.com
 
 a,a:visited {color:#dd8000;text-decoration:none;}
 a:hover {color:#ddd;}
-body {background:url(images/bg.jpg) #111;}
+body {background:url(images/bg.jpg) #111;background-attachment:fixed;}
 
 @font-face {
 font-family: "ARGOS";
@@ -25,20 +25,21 @@ src: url("images/ARGOS.TTF");
 
 #posts {min-height:40em;padding:4em 100px 0 100px;background:url(images/main-bg.png) no-repeat;}
 .post {padding:1.8em;margin-bottom:1.3em;position:relative;background:rgba(36,36,36,.8);}
-.post, .message{-moz-box-shadow:0 0 1em rgba(50,50,50,0.8);-webkit-box-shadow:0 0 1em rgba(50,50,50,0.8);box-shadow:0 0 1em rgba(50,50,50,0.8);-moz-border-radius:.6em;-webkit-border-radius:.6em;-khtml-border-radius:.6em;-opera-border-radius:.6em;border-radius:.6em;}
+.post, .message{-moz-box-shadow:0 0 1em rgba(10,10,10,0.8);-webkit-box-shadow:0 0 1em rgba(10,10,10,0.8);box-shadow:0 0 1em rgba(10,10,10,0.8);-moz-border-radius:.6em;-webkit-border-radius:.6em;-khtml-border-radius:.6em;-opera-border-radius:.6em;border-radius:.6em;}
 .post:hover {-moz-box-shadow:0 0 1em rgba(100,70,40,0.8);-webkit-box-shadow:0 0 1em rgba(100,70,40,0.8);box-shadow:0 0 2em rgba(100,70,40,.8);}
-.post h1 {display:block;width:100%;text-align:center;}
-.post h1 a {color:#eee;font-size:1.5em;font-family:"Times New Romans",serif;text-shadow:0 0 .5em #000;}
+.post h1 {display:block;border-bottom:0.1em dashed #333;padding:0.5em 0 1.5em;width:100%;text-align:center;}
+.post h1 a {color:#eee;font-size:1.8em;font-family:"Times New Romans",serif;text-shadow:0 0 .5em #000;}
 .post h1 a:hover {color:#dd8000;}
 .date {color:#555;font-size:.7em;position:absolute;right:2em;top:1em;text-shadow:.1em .1em .2em #333;}
 .entry {padding:1.8em 0;font-size:.9em;line-height:1.5em;text-shadow:0.1em 0.1em 0.5em #000;}
-.post img {margin:.5em;-moz-box-shadow:0 0 1em rgba(20,20,20,0.8);-webkit-box-shadow:0 0 1em rgba(20,20,20,0.8);box-shadow:0 0 2em rgba(20,20,20,.8);-moz-border-radius:.3em;-webkit-border-radius:.3em;-khtml-border-radius:.3em;-opera-border-radius:.3em;border-radius:.3em;}
-.entry p {padding:.3em 0;text-indent:2em;}
+.post img {margin:.5em;-moz-box-shadow:.2em .2em 1em #000;-webkit-box-shadow:.2em .2em 1em #000;box-shadow:.2em .2em 1em #000;border:0.2em solid #FFF;}
+.entry p {padding:.3em 0;text-indent:2em;line-height:170%;}
 .entry strike {color:#999;}
-.entry strike:hover {text-decoration:underline;}
-.entry blockquote {padding: 1em 3em;margin:1em; background-color:#222;}
-.entry em {color:#aa8000;}
-.entry a:hover {text-decoration:underline;}
+.entry strike:hover {text-decoration:none;}
+.entry blockquote {padding: 1em 3em;margin:1em;background-color:rgba(20, 20, 20, 0.3);text-shadow:0.1em 0.1em 0.5em rgba(40, 40, 40, 0.898);color:#FFF;}
+.entry em {color:#AA4000;}
+.entry a{color:#FF8000;text-decoration:underline;}
+.entry a:hover {color:#DDD;text-decoration:none;}
 .post ul {margin-left:2em;}
 .clearfix {clear:both;}
 .rest-of-entry {display:block;clear:both;height:3em;padding-left:2em;}
@@ -46,7 +47,7 @@ src: url("images/ARGOS.TTF");
 
 .page-nav {clear:both;padding-bottom:.5em;}
 .page-nav a {display:block;width:40%;padding:.5em;font-size:.9em;text-shadow:.1em .1em .2em #333;}
-.page-nav a:hover {border:.1em dotted #444000;padding:.4em;}
+.page-nav a:hover {border:.1em dotted #444000;padding:.4em;-moz-box-shadow:0 0 1em rgba(10,10,10,0.8);-webkit-box-shadow:0 0 1em rgba(10,10,10,0.8);box-shadow:0 0 1em rgba(10,10,10,0.8);}
 .page-next {float:right;text-align:right;}
 .page-prev {float:left;text-align:left;}
 
@@ -63,7 +64,7 @@ src: url("images/ARGOS.TTF");
 .message em {color:#000;}
 
 .latest-comments {margin:1em 0;list-style:none;text-align:center;}
-.latest-comments img {border:.3em solid #363636;-moz-border-radius:.2em;-webkit-border-radius:.2em;-khtml-border-radius:.2em;-opera-border-radius:.2em;border-radius:.2em;}
+.latest-comments img {margin:0 .1em;border:.3em solid #363636;-moz-border-radius:.2em;-webkit-border-radius:.2em;-khtml-border-radius:.2em;-opera-border-radius:.2em;border-radius:.2em;}
 .latest-comments li {display:inline;}
 .latest-comments li a {opacity:.3;}
 .latest-comments li a:hover {opacity:1;}
@@ -106,7 +107,7 @@ src: url("images/ARGOS.TTF");
 #info ul {list-style:none;}
 #info li {display:inline;}
 #info a {padding:.3em .6em;font-size:.9em;color:#ddd;text-shadow:.1em .1em .5em #000;}
-#info a:hover {-moz-border-radius:.3em;-webkit-border-radius:.3em;-khtml-border-radius:.3em;-opera-border-radius:.3em;border-radius:.3em;border:.1em dotted #333;color:#dd8000;background-color:#222;}
+#info a:hover {-moz-border-radius:.3em;-webkit-border-radius:.3em;-khtml-border-radius:.3em;-opera-border-radius:.3em;border-radius:.3em;border:.1em dotted #333;color:#dd8000;background-color:rgba(20,20,20,.5);-moz-box-shadow:0 0 1em rgba(10,10,10,0.8);-webkit-box-shadow:0 0 1em rgba(10,10,10,0.8);box-shadow:0 0 1em rgba(10,10,10,0.8);}
 .description {font-size:.8em;padding-left:1em;}
 
 
