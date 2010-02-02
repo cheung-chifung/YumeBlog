@@ -63,7 +63,7 @@ src: url("images/ARGOS.TTF");
 .tags a {padding:0 3px;text-shadow:.1em .1em .2em #333;}
 .num-of-comments a:hover {text-decoration:underline;}
 
-.message {padding:5px 50px 6px 20px;margin-bottom:10px;border:10px solid #444;background-color:rgba(255,150,0,.6);text-shadow:0 0 5px #252525;position:relative;}
+.message {padding:5px 50px 6px 20px;margin-bottom:10px;border:none;background-color:rgba(255,150,0,.6);text-shadow:0 0 5px #252525;position:relative;}
 .message:hover {-moz-box-shadow:0 0 10px rgba(150,80,40,.8);box-shadow:0 0 10px rgba(150,80,40,.8);}
 .message span,.message span em {font-size:1.2em;font-family:"Times New Romans",serif;font-style:normal;font-weight:normal;}
 .message span {color:#222;}
