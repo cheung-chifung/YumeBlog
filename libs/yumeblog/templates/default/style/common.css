@@ -31,7 +31,7 @@ src: url("images/ARGOS.TTF");
 .post h1 a {color:#eee;font-size:1.8em;font-family:"Times New Romans",serif;text-shadow:0 0 5px #000;}
 .post h1 a:hover {color:#dd8000;}
 .date {color:#555;font-size:.7em;position:absolute;right:20px;top:10px;text-shadow:1px 1px 2px #333;}
-.entry {padding:18px 0;font-size:.9em;line-height:15px;text-shadow:0.1em 0.1em 0.5em #000;}
+.entry {padding:18px 0;font-size:.9em;line-height:1.5em;text-shadow:0.1em 0.1em 0.5em #000;}
 .post img {margin:5px;-moz-box-shadow:2px 2px 10px #000;-webkit-box-shadow:2px 2px 10px #000;box-shadow:2px 2px 10px #000;border:2px solid #FFF;}
 .entry p {padding:3px 0;text-indent:2em;line-height:170%;}
 .entry strike {color:#999;}
@@ -97,12 +97,12 @@ src: url("images/ARGOS.TTF");
 #comment-form ul {list-style:none;font-size:.8em;}
 #comment-form label {display:block;padding:4px 0;text-shadow:1px 1px 2px #000}
 #comment-form label.checkbox-label {display:inline;}
-#comment-form input,#comment-form textarea {padding:3px;border:1px solid #555;background-color:rgba(60,60,60,.6);text-shadow:.1em .1em .2em #000;}
-#id_user_name, #id_user_email, #id_user_url {width:200px;}
+#comment-form input,#comment-form textarea {padding:5px;border:1px solid #555;background-color:rgba(60,60,60,.6);text-shadow:.1em .1em .2em #000;}
+#id_user_name, #id_user_email, #id_user_url {width:250px;}
 #id_is_notice {margin:3px;}
 #id_comment {background:url(images/cb_bg.png) no-repeat right bottom rgba(60,60,60,.6);}
 #comment-form input:hover,#comment-form textarea:hover {border-color:#bb8000;}
-#comment-form textarea {width:350px;}
+#comment-form textarea {width:400px;}
 #comment-form em {padding:3px 0;color:#d44;font-size:1.2em}
 #submit-comment {margin-top:10px;}
 
