@@ -21,6 +21,13 @@
 	<li><a href="{% url get_post_by_slug rel_post.slug %}">{{ rel_post.title|escape }}</a></li>
 	{% endfor %}
 </ul>
+<h3 class="related-label">{% trans 'Latest entries'%}</h3>
+<ul class="related">
+    {% get_latest yumeblog.Post 5 as latest_posts %}
+	{% for new_post in latest_posts %}
+	<li><a href="{% url get_post_by_slug new_post.slug %}">{{ new_post.title|escape }}</a></li>
+	{% endfor %}
+</ul>
 {% endif %}
 <p class="tags">
 {% if tag_list %}

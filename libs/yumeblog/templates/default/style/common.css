@@ -17,7 +17,7 @@ src: url("images/ARGOS.TTF");
 #logo {width:100%;position:absolute;top:40px;text-align:center;}
 #logo h1 a {display:block;width:500px;height:69px;margin:0 auto;background:url(images/logo.png) no-repeat;text-indent:-10000px;overflow:hidden;}
 #logo h1 a:hover {background-position:0 -69px;}
-#logo p#description {font-size:0.7em;color:#aaa;text-shadow:.1em .1em .2em #333;}
+#logo p#description {font-size:0.7em;color:#aaa;text-shadow:.1em .1em .2em #333;font-family:"ARGOS","Times New Romans",serif;}
 #navibar {position:absolute;right:60px;list-style:none;}
 #navibar li {display:block;float:left;}
 #navibar a {display:block;padding:6px 10px;border-left:1px dotted #442000;font-size:.8em;font-family:"ARGOS","Times New Romans",serif;font-weight:normal;color:#d44;}
@@ -31,7 +31,7 @@ src: url("images/ARGOS.TTF");
 .post h1 a {color:#eee;font-size:1.8em;font-family:"Times New Romans",serif;text-shadow:0 0 5px #000;}
 .post h1 a:hover {color:#dd8000;}
 .date {color:#555;font-size:.7em;position:absolute;right:20px;top:10px;text-shadow:1px 1px 2px #333;}
-.entry {padding:18px 0;font-size:.9em;line-height:1.5em;text-shadow:0.1em 0.1em 0.5em #000;}
+.entry {padding:18px 0;font-size:.9em;line-height:150%;text-shadow:0.1em 0.1em 0.5em #000;}
 .post img {margin:5px;-moz-box-shadow:2px 2px 10px #000;-webkit-box-shadow:2px 2px 10px #000;box-shadow:2px 2px 10px #000;border:2px solid #FFF;}
 .entry p {padding:3px 0;text-indent:2em;line-height:170%;}
 .entry strike {color:#999;}
@@ -75,11 +75,11 @@ src: url("images/ARGOS.TTF");
 .latest-comments li a {opacity:.3;}
 .latest-comments li a:hover {opacity:1;}
 
-.related {margin:0 auto 2em;list-style:hiragana-iroha;font-weight:bold;}
+.related {margin:0 auto 2em;list-style:hiragana-iroha;font-weight:bold;text-shadow:.1em .1em .2em #111;}
 .related li {font-size:.8em;padding:3px 0;}
 .related li a {color:#884000;}
 .related li a:hover {color:#dd8000;}
-.related-label {margin:10px 0 5px 3px;color:#999;}
+.related-label {margin:10px 0 5px 3px;color:#999;font-family:"Times New Romans",serif;}
 
 #comment-box {background-color:rgba(20, 20, 20, 0.4);}
 #comment-box ul {list-style:none;}
@@ -108,7 +108,7 @@ src: url("images/ARGOS.TTF");
 
 #info {clear:both;padding:5px 0;border-top:1px dotted #222;color:#aaa;line-height:150%;}
 
-#info h3 {margin:5px 0;font-size:1.2em;font-family:"Times New Romans",serif;color:#dd8000;text-shadow:.1em .1em .2em #000;}
+#info h3 {margin:5px 0;font-size:1.2em;font-family:"ARGOS","Times New Romans",serif;color:#dd8000;text-shadow:.1em .1em .2em #000;}
 #info ul {list-style:none;}
 #info li {display:inline;}
 #info a {padding:3px 6px;font-size:.9em;color:#ddd;text-shadow:.1em .1em .5em #000;}
