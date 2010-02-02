@@ -1,1 +1,1 @@
-{{ obj.intro|default:obj.content|safe}}
+{% load i18n %}{{ obj.intro|default:obj.content|safe}}{% if obj.intro %}<div class="rest-of-entry"><a href="{% url get_post_by_slug obj.slug %}">{% trans "Read the rest of the entry" %}</a></div>{% endif %}

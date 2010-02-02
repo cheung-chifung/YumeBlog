@@ -97,7 +97,7 @@ src: url("images/ARGOS.TTF");
 #comment-form ul {list-style:none;font-size:.8em;}
 #comment-form label {display:block;padding:.4em 0;text-shadow:.1em .1em .2em #000}
 #comment-form label.checkbox-label {display:inline;}
-#id_is_notice {margin:.3em;}
+#id_is_notice {margin:.3em;width:auto;}
 #comment-form input,#comment-form textarea {padding:.3em;border:.1em solid #555;background-color:rgba(60,60,60,.6);width:20em;text-shadow:.1em .1em .2em #000;}
 #comment-form textarea {background:url(images/cb_bg.png) no-repeat right bottom rgba(60,60,60,.6);}
 #comment-form input:hover,#comment-form textarea:hover {border-color:#bb8000;}
